@@ -17,18 +17,24 @@ import React, {Component} from 'react';
 //   }
 // }
 
-const Messages = () => {
+const Message = (props) => {
   console.log("Rendering <Messages/>");
+  // console.log(props.messages)
   return (
       <main className="messages">
         <div className="message">
-          <span className="message-username">Anonymous1</span>
-          <span className="message-content">I won't be impressed with technology until I can download food.</span>
-        </div>
-        <div className="message system">
-          Anonymous1 changed their name to nomnom.
+          <span className="message-username">{props.username}</span>
+          <span className="message-content">{props.content}</span>
         </div>
       </main>
   );
 }
-export default Messages;
+export default Message;
+
+
+
+
+
+
+
+

@@ -14,8 +14,9 @@ import React, {Component} from 'react';
 //   }
 // }
 
-const Chatbar = () =>{
+const Chatbar = (props) =>{
   console.log("Rendering <Chatbar/>");
+  console.log(props.user);
   return(
     <footer className="chatbar">
       <input className="chatbar-username" placeholder="Your Name (Optional)" />

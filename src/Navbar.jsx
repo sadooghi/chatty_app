@@ -11,7 +11,7 @@ import React, {Component} from 'react';
 //   }
 // }
 
-const Navbar = () => {
+const Navbar = (props) => {
   console.log("Rendering <Navbar/>");
   return (
       <nav className="navbar">
