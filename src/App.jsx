@@ -7,7 +7,8 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {currentUser: {name: 'bob'},
+    this.state = {
+      currentUser: {name: 'bob'},
       messageList: [{
         id: 1,
         username: 'bob',
@@ -15,6 +16,18 @@ class App extends Component {
       }]
     };
   }
+
+  handleSendMesssage = (content) => {
+    console.log(content)
+    var message = {};
+    message.username = this.state.currentUser.name;
+    message.content= content;
+    this.setState({messageList: this.state.messageList.concat(message)})
+
+  }
+
+
+
   componentDidMount() {
     console.log("componentDidMount <App />");
     setTimeout(() => {
@@ -35,7 +48,7 @@ class App extends Component {
       <section>
         <Navbar/>
         <MessageList messages={this.state.messageList}/>
-        <Chatbar user={this.state.currentUser}/>
+        <Chatbar user={this.state.currentUser} onSendMessage={this.handleSendMesssage}/>
       </section>
     );
   }
