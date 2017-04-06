@@ -28,15 +28,38 @@ wss.broadcast = function broadcast(data) {
 };
 
 wss.on('connection', (ws) => {
+  let num = wss.clients.size;
+  wss.broadcast({type: 'clientNum', clientsConnect: num});
   console.log('Client connected');
+  const uuidV1 = require('uuid/v1');
 
   ws.on('message', (payload) => {
     console.log('Got a signal from the UI...');
-    const data = JSON.parse(payload);
-    console.log(data);
+    let data = JSON.parse(payload);
+    data.id = uuidV1();
 
-    wss.broadcast(data);
+    switch(data.type) {
+      case "postMessage":
+        data.type = "incomingMessage";
+        console.log(data);
+        wss.broadcast(data);
+        break;
+      case "postNotification":
+        data.type = "incomingNotification";
+        console.log(data);
+        wss.broadcast(data);
+        break;
+    }
+
     });
+
+  ws.on('close', () => {
+     console.log('Client disconnected')
+     let num = wss.clients.size;
+     wss.broadcast({type: 'clientNum', clientsConnect: num});
+     // At this point in time wss.clients no longer contains the ws object
+     // of the client who disconnected
+   });
 
   });
 
