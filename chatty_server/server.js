@@ -34,22 +34,9 @@ wss.on('connection', (ws) => {
     console.log('Got a signal from the UI...');
     const data = JSON.parse(payload);
     console.log(data);
-    // // Broadcast to everyone else.
-    // wss.clients.forEach(function each(client) {
-    //   if (client !== ws && client.readyState === WebSocket.OPEN) {
-    //     client.send(JSON.stringify(data));
-    //   }
+
     wss.broadcast(data);
     });
 
-
-    // switch (data.type) {
-    //   case 'message':
-    //     console.log(data.type);
-    //     break;
-    //   default:
-    //     // console.log(payload);
-    //     break;
-    // }
   });
 
