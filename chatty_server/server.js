@@ -50,15 +50,16 @@ wss.on('connection', (ws) => {
         data.color =  userColors[data.username];
         console.log(data);
         wss.broadcast(data);
-
         break;
       case "postNotification":
         data.type = "incomingNotification";
         console.log(data);
         wss.broadcast(data);
         userColors[data.currentName] = randomColor();
-
         break;
+      case "PostImage":
+        data.type = "incomingImage";
+        wss.broadcast(data);
     }
 
   });
