@@ -8,9 +8,7 @@ const MessageList = (props) => {
   return (
       <div className="MessageList">
         { props.messages.map( message => {
-          if(/.jpg$/ || /.png$/ || /.gif$/){
-            return <img src={message.content}/>
-          }else if(message.type == "incomingMessage"){
+          if(message.type == "incomingMessage"){
             return <Message key={message.id} username={message.username} content={message.content} newName={message.newName} color={message.color}/>
           } else if(message.type == "incomingNotification") {
             return <Notification key={message.id} currentName={message.currentName} priorName={message.priorName}/>
