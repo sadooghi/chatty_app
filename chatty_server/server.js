@@ -43,7 +43,7 @@ wss.on('connection', (ws) => {
     console.log('Got a signal from the UI...');
     let data = JSON.parse(payload);
     data.id = uuidV1();
-
+    console.log(data)
     switch(data.type) {
       case "postMessage":
         data.type = "incomingMessage";
