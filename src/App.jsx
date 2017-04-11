@@ -43,7 +43,6 @@ class App extends Component {
     }
 
     this.ws.onmessage = (event) => {
-
      let eventData = JSON.parse(event.data)
       switch (eventData.type) {
         //note: data inside each case is different even though first two cases seem the same, if I make them one, they wont work properly!

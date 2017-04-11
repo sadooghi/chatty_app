@@ -56,7 +56,7 @@ wss.on('connection', (ws) => {
         data.type = "incomingNotification";
         console.log(data);
         wss.broadcast(data);
-        userColors[data.currentName] = randomColor();
+        userColors[data.currentName] = userColors[data.priorName] || randomColor();
 
         break;
     }
