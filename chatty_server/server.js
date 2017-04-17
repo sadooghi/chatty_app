@@ -3,7 +3,7 @@ const express = require('express');
 const WebSocket = require('ws')
 const SocketServer = WebSocket.Server;
 
-// Set the port to 3001
+
 const PORT = 2001;
 
 // Create a new express server
