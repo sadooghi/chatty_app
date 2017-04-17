@@ -7,7 +7,7 @@ const Notification = (props) => {
   return (
       <main className="notification">
         <div className="notification">
-          <span className="notification-username">{`user ${props.priorName} changed theri name to ${props.currentName}`}</span>
+          <span className="notification-username">{`user ${props.priorName} changed their name to ${props.currentName}`}</span>
         </div>
       </main>
   );

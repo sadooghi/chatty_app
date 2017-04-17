@@ -4,9 +4,6 @@ class Chatbar extends Component {
   _textKeypress = (event) => {
     // Detect if it was an enter pressed in text area
     if(event.key == 'Enter'){
-      // if(/.jpg$/ || /.png$/ || /.gif$/) {
-      //   this.props.onSendImage(event.target.value)
-      // }else{
         this.props.onSendMessage(event.target.value)
       // }
     }
