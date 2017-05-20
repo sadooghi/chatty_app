@@ -4,13 +4,13 @@ const WebSocket = require('ws')
 const SocketServer = WebSocket.Server;
 
 
-const PORT = 2001;
+const PORT = 5001;
 
 // Create a new express server
 const server = express()
    // Make the express server serve static assets (html, javascript, css) from the /public folder
   .use(express.static('public'))
-  .listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
+  .listen(PORT, process.env.ACCESS_CONTROL_ALLOW_ORIGIN_URL, 'localhost', () => console.log(`Listening on ${ PORT }`));
 
 // Create the WebSockets server
 const wss = new SocketServer({ server });
@@ -43,18 +43,18 @@ wss.on('connection', (ws) => {
     console.log('Got a signal from the UI...');
     let data = JSON.parse(payload);
     data.id = uuidV1();
-    console.log(46,data)
+    // console.log(46,data)
     switch(data.type) {
       case "postMessage":
         data.type = "incomingMessage";
         data.color =  userColors[data.username];
-        console.log(51,data);
+        // console.log(51,data);
         wss.broadcast(data);
 
         break;
       case "postNotification":
         data.type = "incomingNotification";
-        console.log(57,data);
+        // console.log(57,data);
         wss.broadcast(data);
         userColors[data.currentName] = userColors[data.priorName] || randomColor();
 
