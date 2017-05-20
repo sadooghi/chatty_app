@@ -5,7 +5,6 @@ class Chatbar extends Component {
     // Detect if it was an enter pressed in text area
     if(event.key == 'Enter'){
         this.props.onSendMessage(event.target.value)
-      // }
     }
   }
 
