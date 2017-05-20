@@ -34,7 +34,7 @@ class App extends Component {
 
 
   componentDidMount() {
-    this.ws = new WebSocket("ws://localhost:2001");
+    this.ws = new WebSocket("ws://localhost:5001");
 
 
     this.ws.onopen = (ev) => {
