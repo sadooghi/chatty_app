@@ -16,7 +16,7 @@ const server = express()
 const wss = new SocketServer({ server });
 
 let randomColor = () => {
-  const colors = ['#E6E6FA', '#D8BFD8', '#DDA0DD', '#EE82EE', '#FF00FF', '#FF00FF', '#BA55D3', '#9932CC', '#9400D3', '#8A2BE2', '#8B008B', '#800080', '#9370DB', '#7B68EE', '#6A5ACD', '#483D8B', '#663399', '#4B0082'];
+  const colors = ['#E6E6FA', '#FF00FF', '#9932CC', '#8B008B', '#9370DB', '#663399', '#4B0082', '#3498db', '#34495e', '#e74c3c', '#d35400'];
   return colors[Math.floor(Math.random()*colors.length)];
 }
 let userColors = {};
@@ -43,18 +43,18 @@ wss.on('connection', (ws) => {
     console.log('Got a signal from the UI...');
     let data = JSON.parse(payload);
     data.id = uuidV1();
-    console.log(data)
+    console.log(46,data)
     switch(data.type) {
       case "postMessage":
         data.type = "incomingMessage";
         data.color =  userColors[data.username];
-        console.log(data);
+        console.log(51,data);
         wss.broadcast(data);
 
         break;
       case "postNotification":
         data.type = "incomingNotification";
-        console.log(data);
+        console.log(57,data);
         wss.broadcast(data);
         userColors[data.currentName] = userColors[data.priorName] || randomColor();
 
