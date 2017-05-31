@@ -6,7 +6,7 @@ Chatty allows users to communicate with each other without having to register ac
   * Contains a chat log displaying messages and notifications
   * Contains an input field to change your name and an input field to send a message
 * The client-side app communicates with a server via WebSockets for multi-user real-time updates
-### Behaviour:
+## Behaviour:
 * When any connected user sends a chat message, all connected users see the message real-time
 * When any connected user changes their name, all connected users are notified of the name change
   * Notifications are styled differently from chat messages
@@ -14,7 +14,7 @@ Chatty allows users to communicate with each other without having to register ac
 * When the number of connected users changes, this count will be updated for all connected users real-time
 * Different users' names will each be colored differently
 ## Technical Specifications
-### Stack:
+## Stack:
 * Webpack with Babel, JSX, ES6, webpack dev server (comes with boilerplate)
 * WebSockets using Node package ws on the server-side, and native WebSocket on client side
 * ReactJS
