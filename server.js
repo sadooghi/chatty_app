@@ -9,7 +9,7 @@ new WebpackDevServer(webpack(config), {
       poll: 1000
     }
   })
-  .listen(5000, process.env.ACCESS_CONTROL_ALLOW_ORIGIN_URL, function (err, result) {
+  .listen(process.env.PORT || 5000, '0.0.0.0', function (err, result) {
     if (err) {
       console.log(err);
     }
