@@ -34,7 +34,7 @@ class App extends Component {
 
 
   componentDidMount() {
-    this.ws = new WebSocket("ws://localhost:5001");
+    this.ws = new WebSocket("wss://chatty-second.herokuapp.com/");
 
 
     this.ws.onopen = (ev) => {
